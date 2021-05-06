@@ -4,7 +4,16 @@
 // update state based on action type
 
 export default function ghostReducer( state = {ghosts: []}, action ){
-    //set the default state to an empty object, containing an empty array of ghosts
-    //the action sent to the reducer comes from an action file...
-    return state
+    
+    switch (action.type){
+        case 'FETCH_GHOSTS':
+            return {ghosts: action.payload}
+        default:
+            return state
+    }
+
 }
+
+
+//set the default state to an empty object, containing an empty array of ghosts
+//the action sent to the reducer comes from an action file...
