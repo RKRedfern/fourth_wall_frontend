@@ -11,6 +11,7 @@ class App extends React.Component {
       <div className="App">
         <GhostsContainer/>
       </div>
+      //1 call the ghosts container in app
     )
   }
 }

@@ -5,7 +5,7 @@ import App from './App';
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import ghostReducer from './reducers/ghostReducer'
+import ghostReducer from './Redux/reducers/ghostReducer'
 
 // your store is where you store data, globally
 //the reducers tell us what we want to do with that store based on certain conditions.

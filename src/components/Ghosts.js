@@ -1,12 +1,12 @@
 import React from 'react'
 
 const Ghosts = (props) => {
-    debugger
+    
     return(
-        
         <div>
             Ghosts
-            {props.ghosts.map(ghost => <li>{ghost}</li>)}
+            {/* {props.ghostObj === undefined ? null : props.ghostObj.name} */}
+            {console.log(props.ghostObj)}
         </div>
     )
 
