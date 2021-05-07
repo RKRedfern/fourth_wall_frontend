@@ -1,22 +1,23 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
+import {BrowserRouter} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
+import rootReducer from './Redux/rootReducer'
 import App from './App';
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-import { Provider } from 'react-redux'
-import ghostReducer from './Redux/reducers/ghostReducer'
+import { createStore, applyMiddleware } from 'redux';
 
-// your store is where you store data, globally
-//the reducers tell us what we want to do with that store based on certain conditions.
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
-let store = createStore(ghostReducer, composeEnhancers(applyMiddleware(thunk)))
-
+export const URL = `http://localhost:3000`
 
 ReactDOM.render(
   <Provider store={store}>
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );

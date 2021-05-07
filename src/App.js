@@ -1,32 +1,28 @@
 
-
 import React from 'react';
-import {connect} from 'react-redux'
-// import {fetchGhosts} from './actions/fetchGhosts'
-import GhostsContainer from './containers/GhostsContainer'
+import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import {URL} from './index';
+import HomePage from './Containers/HomePage';
 
 class App extends React.Component {
-  render(){
+
+
+
+  render () {
     return (
       <div className="App">
-        <GhostsContainer/>
+
+      <Switch>
+  
+      <Route path="/" render={() => <HomePage />} />
+
+      </Switch>
+
       </div>
-      //1 call the ghosts container in app
     )
   }
+
 }
 
 export default App;
-//connect accepts mapstatetoprops and action creator 
-//calling dispatch on the return value of fetchGhosts
-
-
-
-
-// const mapStateToProps = (state) => {
-// //this is how we access values in our store as props
-// //gives us access to see what is already in our store
-// return {
-//   ghosts: state.ghosts
-// }
-
