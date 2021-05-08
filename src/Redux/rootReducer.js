@@ -2,8 +2,7 @@
 import {combineReducers} from 'redux';
 
 const defaultState = {
-    user: null,
-    ghosts: [],
+    user: null
 }
 
 function userReducer(prevState = defaultState.user, action){
