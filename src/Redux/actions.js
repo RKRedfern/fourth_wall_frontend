@@ -1,5 +1,5 @@
-import { LOG_IN } from './actionTypes'
-import {URL} from '../index'
+import { LOG_IN, SIGN_UP } from './actionTypes'
+import { URL } from '../index'
 
 
 export function loginUser(userObj) {
@@ -14,8 +14,8 @@ export function loginUser(userObj) {
         })
             .then(r => r.json())
             .then(checkedUserObj => {
-                localStorage.setItem("token", checkedUserObj.jwt)
-                localStorage.setItem("user", checkedUserObj.user)   
+                // localStorage.setItem("token", checkedUserObj.jwt)
+                // localStorage.setItem("user", checkedUserObj.user)   
 
                 dispatch({type: LOG_IN, payload: checkedUserObj.user})
             })
@@ -24,24 +24,24 @@ export function loginUser(userObj) {
 }
 
 
-// export function signupUser(userObj) {
-//     return function (dispatch, getState) {
-//         fetch(`${URL}/users`, {
-//             method: "POST",
-//             headers: {
-//                 "Accepts": "application/json",
-//                 "Content-type": "application/json"
-//             },
-//             body: JSON.stringify({ user: userObj })
-//         })
-//             .then(r => r.json())
-//             .then(newUserObj => {
-//                 localStorage.setItem("token", newUserObj.jwt)
-//                 dispatch({type: SIGN_UP, payload: newUserObj.user})
-//             })
-//             .catch(console.log)
-//     }
-// }
+export function signupUser(userObj) {
+    return function (dispatch, getState) {
+        fetch(`${URL}/users`, {
+            method: "POST",
+            headers: {
+                "Accepts": "application/json",
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ user: userObj })
+        })
+            .then(r => r.json())
+            .then(newUserObj => {
+                //localStorage.setItem("token", newUserObj.jwt)
+                dispatch({type: SIGN_UP, payload: newUserObj.user})
+            })
+            .catch(console.log)
+    }
+}
 
 // export function returningUser(userObj) {
 //     const wishlistRecords = userObj.records

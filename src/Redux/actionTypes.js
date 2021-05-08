@@ -1,4 +1,4 @@
-//export const SIGN_UP = "SIGN_UP"
+export const SIGN_UP = "SIGN_UP"
 export const LOG_IN =  "LOG_IN"
 //export const RETURNING = "RETURNING"
 //export const DELETE_USER = "DELETE_USER"

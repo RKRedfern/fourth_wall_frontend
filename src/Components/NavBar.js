@@ -13,12 +13,12 @@ const NavBar = (props) => {
                     <button>Profile</button>
                 </NavLink>
 
-                <NavLink to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
-                    {/* <button onClick={()=> {
+                <NavLink to="/logout" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                    <button onClick={()=> {
                     localStorage.removeItem("token")
                     localStorage.removeItem("user")
                     props.logOut()
-                    }} >Log Out </button> */}
+                    }} >Log Out </button>
                 </NavLink> 
             
                 <NavLink to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}> 

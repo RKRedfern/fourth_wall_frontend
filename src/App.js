@@ -6,13 +6,16 @@ import { connect } from 'react-redux';
 import HomePage from './Containers/HomePage';
 import NavBar from './Components/NavBar';
 import LogInForm from './Components/LogInForm';
-//import SignUpForm from './Components/SignUpForm';
+import SignUpForm from './Components/SignUpForm';
+import { loginUser } from './Redux/actions';
+import Profile from './Containers/Profile';
+
 
 class App extends React.Component {
 
-  // signupSubmitHandler = (userObj) => {
-  //   this.props.signup(userObj)
-  // }
+  signupSubmitHandler = (userObj) => {
+    this.props.signup(userObj)
+  }
 
   loginSubmitHandler = (userObj) => {
     this.props.login(userObj)
@@ -21,13 +24,26 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-      <NavBar />
+      <NavBar /> 
       <Switch>
 
       <Route path="/login" render={(routerProps) => {
           return(
             <LogInForm  submitHandler={this.loginSubmitHandler} routerProps={routerProps}/> )
           }} 
+      />
+
+      <Route path="/profile" render={(routerProps)=> {
+            return(
+              <Profile routerProps={routerProps} /> )
+          }} 
+      />
+
+      <Route path="/signup" render={(routerProps) =>{
+            return(
+              <SignUpForm submitHandler={this.signupSubmitHandler} routerProps={routerProps} /> )
+          }}
+
       />
 
       <Route path="/" render={() => <HomePage />} />
@@ -46,8 +62,8 @@ function msp(state){
 
 function mdp(dispatch){
   return{
-    //signup: (newUserObj) => dispatch(signupUser(newUserObj)),
-    login: (userObj) => dispatch(loginUser(userObj))
+    login: (userObj) => dispatch(loginUser(userObj)),
+    signup: (newUserObj) => dispatch(signupUser(newUserObj)),
   }
 }
 

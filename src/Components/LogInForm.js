@@ -17,26 +17,26 @@ class LogInForm extends React.Component {
         let location = this.props.routerProps.history
         location.replace("/profile")
         this.props.submitHandler(this.state)
-
     }
 
     render(){
         return(
-            <body className="form-body">
+            
+            <div className="form-body">
 
                 <h1>Log In</h1>
                 <form onSubmit={this.submitHandler} className="login-form">
 
                     <div className="username-div">
                         <input type="text" name="username" value={this.state.username} onChange={this.changeHandler} autoComplete="off"/>
-                        <label for="username" className="label-username">
+                        <label htmlFor="username" className="label-username">
                             <span className="content-username">Username</span>
                         </label>
                     </div>
                         
                     <div className="password-div">
                         <input type="password" name="password" value={this.state.password} onChange={this.changeHandler} autoComplete="off" />
-                        <label for="password" className="label-password">
+                        <label htmlFor="password" className="label-password">
                             <span className="content-password">Password</span>
                         </label>
 
@@ -45,7 +45,8 @@ class LogInForm extends React.Component {
                     <button>Log In</button>
                 </form> 
                 
-            </body>
+            </div>
+        
         )
     }
 }
