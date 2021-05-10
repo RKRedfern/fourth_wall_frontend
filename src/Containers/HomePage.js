@@ -4,7 +4,7 @@ import React from 'react'
 class HomePage extends React.Component  {
     render () {
 
-        const ghosts = this.props.ghosts
+        //const ghosts = this.props.ghosts
 
         return (
             <span className="homepage">
@@ -25,5 +25,12 @@ class HomePage extends React.Component  {
         }
     }
 
+//     function msp(state){
+//         return{
+//             ghosts: state.ghosts
+//         }
+//     }
+
+// export default connect(msp)(HomePage);
 
 export default HomePage;

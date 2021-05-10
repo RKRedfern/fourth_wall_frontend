@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
-//import { deleteUser } from '../Redux/actions'
+import { deleteUser } from '../Redux/actions'
 
 
 const Profile = (props) => {
@@ -22,6 +21,7 @@ const Profile = (props) => {
 
         return (
             <>
+            { user ?
                 <span className="profile">
                     <div className="user-info">
                         <h1>Welcome  {props.user.name}</h1>
@@ -34,21 +34,22 @@ const Profile = (props) => {
                         <button onClick={deleteHandler} >Delete Account</button>
                     </div>
                 </span>
+            : <h1>Loading...</h1> }
             </>
         )
     }
 
 
-// function msp(state){
-//     return { 
-//         user: state.user
-//     }
-// }
+function msp(state){
+    return { 
+        user: state.user
+    }
+}
 
-// function mdp(dispatch){
-//     return {
-//         deletingUser: (userId) => {dispatch(deleteUser(userId))}
-//     }
-// }
+function mdp(dispatch){
+    return {
+        deletingUser: (userId) => {dispatch(deleteUser(userId))}
+    }
+}
 
-export default Profile
+export default connect(msp, mdp)(Profile);
