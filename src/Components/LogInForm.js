@@ -3,8 +3,9 @@ import React from 'react'
 
 class LogInForm extends React.Component {
     state = {
-        username: "",
-        password: ""
+        name: "",
+        password: "", 
+        bio: ""
     }
 
     changeHandler = (e) => {
@@ -27,17 +28,17 @@ class LogInForm extends React.Component {
                 <h1>Log In</h1>
                 <form onSubmit={this.submitHandler} className="login-form">
 
-                    <div className="username-div">
-                        <input type="text" name="username" value={this.state.username} onChange={this.changeHandler} autoComplete="off"/>
-                        <label htmlFor="username" className="label-username">
-                            <span className="content-username">Username</span>
+                    <div className="name-div">
+                        <input type="text" name="name" value={this.state.name} onChange={this.changeHandler} autoComplete="off"/>
+                        <label htmlFor="name" className="label-name">
+                            <span className="content-name">Name</span>
                         </label>
                     </div>
                         
                     <div className="password-div">
                         <input type="password" name="password" value={this.state.password} onChange={this.changeHandler} autoComplete="off" />
                         <label htmlFor="password" className="label-password">
-                            <span className="content-password">Password</span>
+                            <span className="content-password"> Password </span>
                         </label>
 
                     </div>

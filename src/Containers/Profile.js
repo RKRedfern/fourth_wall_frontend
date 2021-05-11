@@ -8,7 +8,7 @@ const Profile = (props) => {
     const deleteHandler = () => {
         let location = props.routerProps.history
         location.replace("/")
-        props.deletingUser(props.user.id)
+        props.deletingUser(props.user.data.id)
     }
 
     const editHandler = () => {
@@ -18,20 +18,20 @@ const Profile = (props) => {
 
 
         const user = props.user
-
+        
         return (
             <>
             { user ?
                 <span className="profile">
                     <div className="user-info">
-                        <h1>Welcome  {props.user.name}</h1>
-                        <h3>{props.user.name}</h3>
-                        <h4>{props.user.bio}</h4>
-                        <button onClick={editHandler} >Edit Account Info</button>
+                        <h1>Welcome {props.user.data.attributes.name}</h1>
+                        <h3>{props.user.data.attributes.name}</h3>
+                        <h4>{props.user.data.attributes.bio}</h4>
+                        {/* <button onClick={editHandler} >Edit Account Info</button> */}
                     </div>
                     
                     <div className="account-buttons">
-                        <button onClick={deleteHandler} >Delete Account</button>
+                        {/* <button onClick={deleteHandler} >Delete Account</button> */}
                     </div>
                 </span>
             : <h1>Loading...</h1> }

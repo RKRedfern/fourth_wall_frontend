@@ -4,3 +4,7 @@ export const RETURNING = "RETURNING"
 export const DELETE_USER = "DELETE_USER"
 export const EDIT_USER = "EDIT_USER"
 export const LOG_OUT = "LOG_OUT"
+
+export const SET_GHOSTS = "SET_GHOSTS"
+export const ADD_TO_GHOSTS = "ADD_TO_GHOSTS"
+export const REMOVE_FROM_GHOSTS = "REMOVE_FROM_GHOSTS"

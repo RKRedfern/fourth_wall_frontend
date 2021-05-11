@@ -1,13 +1,18 @@
 import React from 'react'
 
-class SignUpForm extends React.Component {
-    state = {
-        username: "",
-        password: ""
+export default class SignUpForm extends React.Component {
+    constructor(props){
+        super()
+        this.state = {
+            name: "",
+            password: "", 
+            bio: ""
+        }
     }
 
+
     changeHandler = (e) => {
-        this.setState({ [e.target.name]: e.target.value})
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     submitHandler = (e) => {
@@ -26,17 +31,17 @@ class SignUpForm extends React.Component {
                     <h1> Sign Up</h1>
                 <form onSubmit={this.submitHandler} className="signup-form">
 
-                    <div className="username-div">
-                        <input type="text" name="username" value={this.state.username} onChange={this.changeHandler} autoComplete="off"/>
-                        <label htmlFor="username" className="label-username">
-                            <span className="content-username">Username</span>
+                    <div className="name-div">
+                        <input type="text" name="name" value={this.state.name} onChange={this.changeHandler} autoComplete="off"/>
+                        <label htmlFor="name" className="label-name">
+                            <span className="content-name">Name</span>
                         </label>
                     </div>
 
                     <div className="password-div">
                         <input type="password" name="password" value={this.state.password} onChange={this.changeHandler} autoComplete="off" />
                         <label htmlFor="password" className="label-password">
-                            <span className="content-password">Password</span>
+                            <span className="content-password"> Password </span>
                         </label>
                     </div>
                     
@@ -48,4 +53,3 @@ class SignUpForm extends React.Component {
     }
 }
 
-export default SignUpForm;

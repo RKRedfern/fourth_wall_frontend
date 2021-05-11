@@ -15,10 +15,9 @@ import EditForm from './Components/EditForm';
 class App extends React.Component {
 
   componentDidMount = () => {
-
+    
     const token = localStorage.getItem("token")
     const user = localStorage.getItem("user")
-
 
     if(token && user){
       fetch(`${URL}/profile`, {
@@ -29,7 +28,7 @@ class App extends React.Component {
       })
         .then(r => r.json())
         .then(returningUser => {
-          this.props.returning(returningUser.user)
+          console.log(returningUser)
         })
     }
     // this line will be something like => this.props.setGhosts()
@@ -44,7 +43,7 @@ class App extends React.Component {
   }
 
   editSubmitHandler = (userObj) => {
-    this.props.edit(userObj, this.props.user.id)
+    this.props.edit(userObj, this.props.user.data.id)
   }
 
   render () {

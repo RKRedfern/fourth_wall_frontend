@@ -11,12 +11,12 @@ import { createStore, applyMiddleware } from 'redux';
 
 const store = createStore(rootReducer, applyMiddleware(thunk))
 
-export const URL = `http://localhost:3000/api/V1`
+export const URL = `http://localhost:3000/Api/V1`
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-    <App />
+      <App />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

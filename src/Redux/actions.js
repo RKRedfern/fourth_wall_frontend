@@ -4,7 +4,7 @@ import { URL } from '../index'
 
 export function loginUser(userObj) {
     return function(dispatch, getState){
-        fetch(`${URL}/login`, {
+        fetch('http://localhost:3000/api/v1/login', {
             method: "POST",
             headers: {
                 "Accepts": "application/json",
@@ -26,7 +26,7 @@ export function loginUser(userObj) {
 
 export function signupUser(userObj) {
     return function (dispatch, getState) {
-        fetch(`${URL}/users`, {
+        fetch('http://localhost:3000/api/v1/users', {
             method: "POST",
             headers: {
                 "Accepts": "application/json",
@@ -43,20 +43,23 @@ export function signupUser(userObj) {
     }
 }
 
+// This function is causing a ton of problems, what does it even do? Who knows?
 export function returningUser(userObj) {
-    //const  = userObj.records
+    //const ghosts = userObj.ghosts
     return dispatch => {
-        dispatch({type: RETURNING, payload: userObj}) 
+        debugger
+        dispatch({ type: RETURNING, payload: userObj }) 
         //this will say something like ghosts dispatch ... dispatch(setWishlist(wishlistRecords))
-        }
     }
+}
 
 
 export function deleteUser(userId){
     return function (dispatch){
         fetch(`${URL}/users/${userId}`, {
-            method: "DELETE",
+            method: "DESTROY",
             headers: {
+                "Access-Control-Allow-Origin": "*",
                 "Accepts": "application/json",
                 "Content-type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem("token")
@@ -65,7 +68,7 @@ export function deleteUser(userId){
         .then(r=>r.json())
         .then(response => {
             localStorage.clear()
-            dispatch({type: DELETE_USER})
+            dispatch({ type: DELETE_USER, payload: null })
         })
     }
 }
@@ -75,6 +78,7 @@ export function editUser(userObj, userId){
         fetch(`${URL}/users/${userId}`, {
             method: "PATCH",
             headers: {
+                
                 "Accepts": "application/json",
                 "Content-type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem("token")
@@ -83,13 +87,11 @@ export function editUser(userObj, userId){
         })
         .then(r=>r.json())
         .then(returnedUser => {
-            dispatch({type: EDIT_USER, payload: returnedUser.user})
+            dispatch({ type: EDIT_USER, payload: returnedUser.user })
         })
     }
 }
 
-
-
 export function loggingOut(){
-    return { type: LOG_OUT}
+    return { type: LOG_OUT }
 }

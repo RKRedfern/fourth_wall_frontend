@@ -2,7 +2,8 @@
 import {combineReducers} from 'redux';
 
 const defaultState = {
-    user: null
+    user: null, 
+    ghosts: []
 }
 
 function userReducer(prevState = defaultState.user, action){
@@ -24,9 +25,23 @@ function userReducer(prevState = defaultState.user, action){
     }
 }
 
+function ghostReducer(prevState = defaultState.ghosts, action){
+    switch(action.type) {
+        case "SET_GHOSTS":
+            return action.payload
+        case "ADD_TO_GHOSTS":
+            return [...prevState, action.payload]
+        case "REMOVE_FROM_GHOSTS":
+            return prevState.filter(ghost => ghost.id !== action.payload)
+        default:
+            return prevState
+    }
+}
+
 
 const rootReducer = combineReducers({
     user: userReducer,
+    ghost: ghostReducer
 })
 
 export default rootReducer;

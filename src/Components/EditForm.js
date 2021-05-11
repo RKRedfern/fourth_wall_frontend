@@ -2,10 +2,13 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 class EditForm extends React.Component {
-    state = {
-        username: this.props.user.username,
-        email: this.props.user.email,
-        phone: this.props.user.phone
+    constructor(props){
+        super()
+        
+        this.state = {
+            name: props.user.data.attributes.name,
+            bio: props.user.data.attributes.bio
+        }
     }
 
     changeHandler = (e) => {
@@ -22,28 +25,28 @@ class EditForm extends React.Component {
 
     render(){
         return(
-            <body className="form-body">
+            <div className="form-div">
 
                 <form onSubmit={this.submitHandler} className="edit-form" >
 
                     <div className="name-div">
-                        <input type="text" name="username" value={this.state.username} onChange={this.changeHandler} autoComplete="off"/>
-                        <label for="username" className="label-username">
-                            <span className="content-username">Username</span>
+                        <input type="text" name="username" value={this.state.name} onChange={this.changeHandler} autoComplete="off"/>
+                        <label htmlFor="username" className="label-username">
+                            <span className="content-username"> Name </span>
                         </label>
                     </div>
                         
                     <div className="bio-div">
-                        <input type="phone" name="phone" value={this.state.phone} onChange={this.changeHandler} autoComplete="off" />
-                        <label for="phone" className="label-phone">
-                            <span className="content-phone">Phone</span>
+                        <input type="bio" name="bio" value={this.state.bio} onChange={this.changeHandler} autoComplete="off" />
+                        <label htmlFor="bio" className="label-bio">
+                            <span className="content-bio"> Bio </span>
                         </label>
 
                     </div>
 
                     <button>Edit User</button>
                 </form>
-            </body>
+            </div>
         )
     }
 }
@@ -54,4 +57,6 @@ function msp(state){
     }
 }
 
-export default connect(msp, null) (EditForm)
+export default connect(msp, null)(EditForm)
+
+//This action is incomplete - Need to finish the edit action in backend and fix prop transfer
