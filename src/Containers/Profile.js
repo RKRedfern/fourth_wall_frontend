@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { deleteUser } from '../Redux/actions'
 
-
 const Profile = (props) => {
 
     const deleteHandler = () => {
@@ -15,10 +14,10 @@ const Profile = (props) => {
         let location = props.routerProps.history
         location.replace("/edit")
     }
-
-
-        const user = props.user
         
+    const user = props.user
+
+
         return (
             <>
             { user ?
@@ -27,18 +26,19 @@ const Profile = (props) => {
                         <h1>Welcome {props.user.data.attributes.name}</h1>
                         <h3>{props.user.data.attributes.name}</h3>
                         <h4>{props.user.data.attributes.bio}</h4>
-                        {/* <button onClick={editHandler} >Edit Account Info</button> */}
+                        <button onClick={editHandler} >Edit Account Info</button>
                     </div>
                     
                     <div className="account-buttons">
-                        {/* <button onClick={deleteHandler} >Delete Account</button> */}
+                        <button onClick={deleteHandler} >Delete Account</button>
+                        
                     </div>
                 </span>
-            : <h1>Loading...</h1> }
+            : 
+            <h1>Loading...</h1> }
             </>
         )
-    }
-
+}
 
 function msp(state){
     return { 

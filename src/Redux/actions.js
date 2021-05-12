@@ -1,4 +1,4 @@
-import { LOG_IN, SIGN_UP, RETURNING, DELETE_USER, EDIT_USER, LOG_OUT } from './actionTypes'
+import { LOG_IN, SIGN_UP, RETURNING, DELETE_USER, EDIT_USER, LOG_OUT, ADD_TO_GHOSTS, SET_GHOSTS, REMOVE_FROM_GHOSTS } from './actionTypes'
 import { URL } from '../index'
 
 
@@ -95,3 +95,31 @@ export function editUser(userObj, userId){
 export function loggingOut(){
     return { type: LOG_OUT }
 }
+
+export function addToGhosts(userId, ghostDetails) {
+    return function (dispatch, getState) {        
+            fetch(`${URL}/users/${userId}/ghosts/`, {
+                method: "POST",
+                headers: {
+                    "Accepts": "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_id: parseInt(userId) ,
+                    name: ghostDetails.name,
+                    kind: ghostDetails.kind,
+                    notes: ghostDetails.notes
+                })
+            })
+            .then(r => r.json())
+            .then(ghostObj => {
+                console.log(ghostObj)
+                dispatch({type: ADD_TO_GHOSTS, payload: ghostDetails})
+            })
+        }
+    }
+
+// export function getGhosts(){
+//     return function ()
+// }
+// tbd on this bad boy do I even need it?
