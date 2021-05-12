@@ -1,4 +1,4 @@
-import { LOG_IN, SIGN_UP, RETURNING, DELETE_USER, EDIT_USER, LOG_OUT, ADD_TO_GHOSTS, SET_GHOSTS, REMOVE_FROM_GHOSTS } from './actionTypes'
+import { LOG_IN, SIGN_UP, RETURNING, DELETE_USER, EDIT_USER, LOG_OUT, ADD_TO_GHOSTS, FETCH_GHOSTS } from './actionTypes'
 import { URL } from '../index'
 
 
@@ -119,7 +119,11 @@ export function addToGhosts(userId, ghostDetails) {
         }
     }
 
-// export function getGhosts(){
-//     return function ()
-// }
-// tbd on this bad boy do I even need it?
+export function fetchGhosts(){
+    return (dispatch) => {
+        fetch('http://localhost:3000/api/v1/ghosts')
+        .then(r => r.json())
+        .then(json => dispatch({ type: FETCH_GHOSTS, payload: json }))
+    }
+}
+

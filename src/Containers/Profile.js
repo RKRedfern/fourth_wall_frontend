@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { deleteUser } from '../Redux/actions'
 
+
 const Profile = (props) => {
 
     const deleteHandler = () => {
@@ -20,6 +21,7 @@ const Profile = (props) => {
 
         return (
             <>
+            
             { user ?
                 <span className="profile">
                     <div className="user-info">
@@ -31,12 +33,12 @@ const Profile = (props) => {
                     
                     <div className="account-buttons">
                         <button onClick={deleteHandler} >Delete Account</button>
-                        
                     </div>
                 </span>
             : 
             <h1>Loading...</h1> }
             </>
+            
         )
 }
 

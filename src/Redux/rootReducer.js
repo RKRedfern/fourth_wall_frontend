@@ -27,6 +27,8 @@ function userReducer(prevState = defaultState.user, action){
 
 function ghostReducer(prevState = defaultState.ghosts, action){
     switch(action.type) {
+        case "FETCH_GHOSTS":
+            return {ghosts: action.payload}
         case "SET_GHOSTS":
             return action.payload
         case "ADD_TO_GHOSTS":

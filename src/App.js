@@ -7,9 +7,11 @@ import HomePage from './Containers/HomePage';
 import NavBar from './Components/NavBar';
 import LogInForm from './Components/LogInForm';
 import SignUpForm from './Components/SignUpForm';
-import { loginUser, signupUser, returningUser, editUser } from './Redux/actions';
+import { loginUser, signupUser, returningUser, editUser, fetchGhosts } from './Redux/actions';
 import Profile from './Containers/Profile';
 import EditForm from './Components/EditForm';
+import GhostContainer from './Containers/GhostContainer'
+
 
 
 class App extends React.Component {
@@ -31,7 +33,6 @@ class App extends React.Component {
           console.log(returningUser)
         })
     }
-    // this line will be something like => this.props.setGhosts()
   }
 
   signupSubmitHandler = (userObj) => {
@@ -49,34 +50,32 @@ class App extends React.Component {
   render () {
     return (
       <div className="App">
-        <NavBar /> 
+        <NavBar />
+        <GhostContainer />
         <Switch>
+          {/* User Routes */}
         <Route path="/profile" render={(routerProps)=> {
               return(
                 <Profile routerProps={routerProps} /> )
             }} 
         />
-
         <Route path="/login" render={(routerProps) => {
             return(
               <LogInForm  submitHandler={this.loginSubmitHandler} routerProps={routerProps}/> )
             }} 
         />
-
         <Route path="/signup" render={(routerProps) =>{
               return(
                 <SignUpForm submitHandler={this.signupSubmitHandler} routerProps={routerProps} /> )
             }}
-
         />
-
         <Route path='/edit' render={(routerProps) => {
             return(
               <EditForm submitHandler={this.editSubmitHandler} routerProps={routerProps} />
             )
           }} 
         />
-
+          {/* Ghost Routes */}
         <Route path="/" render={() => <HomePage />} />
 
         </Switch>
@@ -87,8 +86,8 @@ class App extends React.Component {
 
 function msp(state){
   return{
-    user: state.user
-    // ghosts: state.ghosts
+    user: state.user,
+    ghosts: state.ghosts
   }
 }
 
@@ -98,7 +97,7 @@ function mdp(dispatch){
     signup: (newUserObj) => dispatch(signupUser(newUserObj)),
     returning: (userObj) => dispatch(returningUser(userObj)),
     edit: (userObj, userId) => dispatch(editUser(userObj, userId)),
-    //setGhosts: () => dispatch(setGhosts()),
+    fetchGhosts: (ghostDetails) => dispatch(fetchGhosts(ghostDetails))
   }
 }
 

@@ -10,7 +10,6 @@ export default class SignUpForm extends React.Component {
         }
     }
 
-
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
