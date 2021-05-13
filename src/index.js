@@ -12,7 +12,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
-export const URL = `http://localhost:3000/Api/V1`
+export const URL = 'http://localhost:3000/api/v1'
 
 ReactDOM.render(
   <Provider store={store}>

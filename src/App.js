@@ -27,7 +27,8 @@ class App extends React.Component {
       })
         .then(r => r.json())
         .then(returningUser => {
-          console.log(returningUser)
+          console.log(returningUser.user)
+          this.props.returning(returningUser.user)
         })
     }
   }

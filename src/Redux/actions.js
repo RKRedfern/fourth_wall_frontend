@@ -3,7 +3,7 @@ import { URL } from '../index'
 
 
 export function loginUser(userObj) {
-    return function(dispatch){
+    return function(dispatch, getState){
         fetch('http://localhost:3000/api/v1/login', {
             method: "POST",
             headers: {
@@ -42,9 +42,9 @@ export function signupUser(userObj) {
     }
 }
 
-export function returningUser() {
+export function returningUser(userObj) {
     return dispatch => {
-        dispatch({ type: RETURNING, payload: null }) 
+        dispatch({ type: RETURNING, payload: userObj }) 
     }
 }
 

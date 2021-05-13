@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Ghost from '../Components/Ghost'
 import GhostInput from '../Components/GhostInput'
 import { connect } from 'react-redux'
