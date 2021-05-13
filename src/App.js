@@ -11,7 +11,6 @@ import { loginUser, signupUser, returningUser, editUser } from './Redux/actions'
 import Profile from './Containers/Profile';
 import EditForm from './Components/EditForm';
 
-
 class App extends React.Component {
 
   componentDidMount = () => {
@@ -27,7 +26,6 @@ class App extends React.Component {
       })
         .then(r => r.json())
         .then(returningUser => {
-          console.log(returningUser.user)
           this.props.returning(returningUser.user)
         })
     }
@@ -78,12 +76,14 @@ class App extends React.Component {
       </div>
     )
   }
+  componentWillUnmount(){
+
+  }
 }
 
 function msp(state){
   return{
     user: state.user
-    // ghosts: state.ghost
   }
 }
 
@@ -91,7 +91,7 @@ function mdp(dispatch){
   return{
     login: (userObj) => dispatch(loginUser(userObj)),
     signup: (newUserObj) => dispatch(signupUser(newUserObj)),
-    returning: (userObj) => dispatch(returningUser(userObj)),
+    returning: (userObj, ghostObj) => dispatch(returningUser(userObj, ghostObj)),
     edit: (userObj, userId) => dispatch(editUser(userObj, userId)),
   }
 }

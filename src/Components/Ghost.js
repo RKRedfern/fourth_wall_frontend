@@ -5,7 +5,7 @@ const Ghosts = (props) => {
     
     return(
         <div>
-            GHOSTS!
+            {props.user.attributes.ghosts.map(ghost => <li key={ghost.id}> {ghost.name} - {ghost.kind} - {ghost.notes} </li>)}
         </div>
     )
 

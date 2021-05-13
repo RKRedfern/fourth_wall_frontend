@@ -11,9 +11,9 @@ function userReducer(prevState = defaultState.user, action){
         case "SIGN_UP":
             return action.payload
         case "LOG_IN":
-            return action.payload
+            return action.payload.user.data
         case "RETURNING":
-            return action.payload
+            return action.payload.data
         case "DELETE_USER":
             return action.payload
         case "EDIT_USER":
@@ -35,6 +35,10 @@ function ghostReducer(prevState = defaultState.ghost, action){
             return [...prevState, action.payload]
         case "REMOVE_FROM_GHOSTS":
             return prevState.filter(ghost => ghost.id !== action.payload)
+        // case "RETURNING":
+        //     return prevState.concat(action.payload.data.attributes.ghosts)
+        case "LOG_OUT":
+            return null
         default:
             return prevState
     }

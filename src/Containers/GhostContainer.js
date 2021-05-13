@@ -7,9 +7,12 @@ const GhostContainer = (props) => {
 
     return(
         <div>
-            <Ghost />
+            <Ghost user={props.user}/>
             <GhostInput />
+            
         </div>
+
+
     )
 }
 
@@ -19,14 +22,4 @@ function msp(state){
     }
 }
 
-// const mdp = dispatch => {
-//     return {
-//         fetchGhosts: () => dispatch(fetchGhosts())
-//     }
-// }
-
 export default connect(msp)(GhostContainer);
-
-
-{/* { this.props.ghost !== undefined ? 
-console.log(this.props.ghost) : 'Loading...'} */}
