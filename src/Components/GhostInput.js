@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {addToGhosts} from '../Redux/actions'
+// import {addToGhosts} from '../Redux/actions'
 
 class GhostInput extends React.Component{
 

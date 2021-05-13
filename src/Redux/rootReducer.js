@@ -9,7 +9,7 @@ const defaultState = {
 function userReducer(prevState = defaultState.user, action){
     switch(action.type){
         case "SIGN_UP":
-            return action.payload
+            return action.payload.user.data
         case "LOG_IN":
             return action.payload.user.data
         case "RETURNING":

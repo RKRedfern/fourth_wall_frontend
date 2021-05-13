@@ -7,9 +7,10 @@ import HomePage from './Containers/HomePage';
 import NavBar from './Components/NavBar';
 import LogInForm from './Components/LogInForm';
 import SignUpForm from './Components/SignUpForm';
-import { loginUser, signupUser, returningUser, editUser } from './Redux/actions';
+import { loginUser, signupUser, returningUser, editUser, addToGhosts } from './Redux/actions';
 import Profile from './Containers/Profile';
 import EditForm from './Components/EditForm';
+import GhostInput from './Components/GhostInput';
 
 class App extends React.Component {
 
@@ -43,6 +44,10 @@ class App extends React.Component {
     this.props.edit(userObj, this.props.user.data.id)
   }
 
+  addGhostHandler = () => {
+    
+  }
+
   render () {
     return (
       <div className="App">
@@ -69,7 +74,13 @@ class App extends React.Component {
             )
           }} 
         />
-        
+        <Route path='/addghost' render={(routerProps) => {
+            return(
+              <GhostInput submitHandler={this.addGhostHandler} routerProps={routerProps} />
+            )
+          }} 
+        />
+
         <Route path="/" render={() => <HomePage />} />
 
         </Switch>
@@ -93,6 +104,7 @@ function mdp(dispatch){
     signup: (newUserObj) => dispatch(signupUser(newUserObj)),
     returning: (userObj, ghostObj) => dispatch(returningUser(userObj, ghostObj)),
     edit: (userObj, userId) => dispatch(editUser(userObj, userId)),
+    addGhost: (ghostObj, userId) => dispatch(addToGhosts(ghostObj, userId))
   }
 }
 

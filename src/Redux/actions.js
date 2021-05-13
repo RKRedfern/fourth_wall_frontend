@@ -39,7 +39,9 @@ export function signupUser(userObj) {
             .then(r => r.json())
             .then(newUserObj => {
                 localStorage.setItem("token", newUserObj.jwt)
-                dispatch({type: SIGN_UP, payload: newUserObj.user})
+                console.log(newUserObj.user.data)
+                dispatch({ type: SIGN_UP, payload: newUserObj })
+
             })
             .catch(console.log)
     }

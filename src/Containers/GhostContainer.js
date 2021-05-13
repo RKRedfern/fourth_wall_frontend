@@ -7,9 +7,9 @@ const GhostContainer = (props) => {
 
     return(
         <div>
-            <Ghost user={props.user}/>
-            <GhostInput />
             
+            <Ghost user={props.user}/>
+
         </div>
 
 

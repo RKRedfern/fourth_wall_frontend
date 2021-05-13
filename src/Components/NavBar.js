@@ -38,7 +38,7 @@ const NavBar = (props) => {
                     }} > Log Out </button>
                 </NavLink>
 
-                <NavLink to="/add-ghost" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
+                <NavLink to="/addghost" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
                     <button>Add A Ghost</button>
                 </NavLink>
 

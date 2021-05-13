@@ -6,7 +6,6 @@ export default class SignUpForm extends React.Component {
         this.state = {
             name: "",
             password: "", 
-            bio: ""
         }
     }
 
