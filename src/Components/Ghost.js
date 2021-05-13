@@ -2,10 +2,10 @@ import React from 'react'
 
 
 const Ghosts = (props) => {
-
+    
     return(
         <div>
-            Ghosts!
+            GHOSTS!
         </div>
     )
 

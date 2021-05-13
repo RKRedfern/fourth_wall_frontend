@@ -1,0 +1,78 @@
+/* NavBar CSS*/
+
+.nav-bar {
+    background: linear-gradient(#c3bfff, #320061);
+    color: white;
+    height: 125px;
+    font-style: normal;
+    text-decoration: none;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.nav-logo{
+    float: left;
+    display: inline-flex;
+    z-index: -1;
+    font-family: 'Fantasy', serif;
+}
+
+.button-div {
+    float: right;
+    height: 20px;
+}
+
+.button-div button {
+    padding:0.90em 1.8em;
+    border-style: transparent;
+    border-color: transparent;
+    border-width: 3.5px, 1px;
+    background-color: transparent;
+    margin:0 1em 1em 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Fantasy', serif;
+    font-style: inherit;
+    font-size: 1.4vw;
+    font-weight: 300;
+    color: white;
+    text-align: center;
+    transition: all 0.2s;
+
+}
+
+.nav-img{
+    float: left;
+    height: auto;
+    width: 800px;
+    z-index: 1;
+}
+
+.nav-bar button:hover {
+    color: white;
+    border-color: rgba(255, 255, 255, 0.733);
+    border-width: 3.5px, 1px;
+    border-radius: .5rem;
+    background-color: transparent;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.nav-bar button:active {
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.nav-bar button:visited {
+    color: white;
+    border-color: transparent;
+    text-decoration: none;
+    font-style: normal;
+}
+
+.nav-bar button:link {
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+}

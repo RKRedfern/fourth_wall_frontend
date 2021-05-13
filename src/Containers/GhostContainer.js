@@ -1,36 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Ghost from '../Components/Ghost'
 import GhostInput from '../Components/GhostInput'
 import { connect } from 'react-redux'
-import { fetchGhosts } from '../Redux/actions'
 
-class GhostContainer extends React.Component {
+const GhostContainer = (props) => {
 
-    componentDidMount(){
-        this.props.fetchGhosts()
-    }
-
-    render(){
-        return(
-            <div>
-                <Ghost />
-                <GhostInput />
-            </div>
-        )
-    }
+    return(
+        <div>
+            <Ghost />
+            <GhostInput />
+        </div>
+    )
 }
 
 function msp(state){
     return{
-        ghosts: state.ghosts
+        ghost: state.ghost
     }
 }
 
-// function mdp(dispatch){
+// const mdp = dispatch => {
 //     return {
-//         fetchGhosts: {dispatch(fetchGhosts)}
+//         fetchGhosts: () => dispatch(fetchGhosts())
 //     }
 // }
 
-export default connect(msp, {fetchGhosts})(GhostContainer);
+export default connect(msp)(GhostContainer);
 
+
+{/* { this.props.ghost !== undefined ? 
+console.log(this.props.ghost) : 'Loading...'} */}

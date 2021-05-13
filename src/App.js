@@ -1,4 +1,4 @@
-
+//import './App.css';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,11 +7,9 @@ import HomePage from './Containers/HomePage';
 import NavBar from './Components/NavBar';
 import LogInForm from './Components/LogInForm';
 import SignUpForm from './Components/SignUpForm';
-import { loginUser, signupUser, returningUser, editUser, fetchGhosts } from './Redux/actions';
+import { loginUser, signupUser, returningUser, editUser } from './Redux/actions';
 import Profile from './Containers/Profile';
 import EditForm from './Components/EditForm';
-import GhostContainer from './Containers/GhostContainer'
-
 
 
 class App extends React.Component {
@@ -19,9 +17,8 @@ class App extends React.Component {
   componentDidMount = () => {
     
     const token = localStorage.getItem("token")
-    const user = localStorage.getItem("user")
-
-    if(token && user){
+    
+    if(token){
       fetch(`${URL}/profile`, {
         method: "GET",
         headers: {
@@ -51,9 +48,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar />
-        <GhostContainer />
         <Switch>
-          {/* User Routes */}
         <Route path="/profile" render={(routerProps)=> {
               return(
                 <Profile routerProps={routerProps} /> )
@@ -75,7 +70,7 @@ class App extends React.Component {
             )
           }} 
         />
-          {/* Ghost Routes */}
+        
         <Route path="/" render={() => <HomePage />} />
 
         </Switch>
@@ -86,8 +81,8 @@ class App extends React.Component {
 
 function msp(state){
   return{
-    user: state.user,
-    ghosts: state.ghosts
+    user: state.user
+    // ghosts: state.ghost
   }
 }
 
@@ -97,7 +92,6 @@ function mdp(dispatch){
     signup: (newUserObj) => dispatch(signupUser(newUserObj)),
     returning: (userObj) => dispatch(returningUser(userObj)),
     edit: (userObj, userId) => dispatch(editUser(userObj, userId)),
-    fetchGhosts: (ghostDetails) => dispatch(fetchGhosts(ghostDetails))
   }
 }
 

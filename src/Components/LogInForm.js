@@ -2,10 +2,10 @@ import React from 'react'
 
 
 class LogInForm extends React.Component {
+    
     state = {
         name: "",
-        password: "", 
-        bio: ""
+        password: ""
     }
 
     changeHandler = (e) => {

@@ -1,5 +1,5 @@
 import React from 'react'
-//import SpookyGhost from '../assets/SpookyGhost.png'
+// import HauntedHouse from '../assets/HauntedHouse.jpeg'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { loggingOut } from '../Redux/actions'
@@ -12,8 +12,11 @@ const NavBar = (props) => {
         <div className="nav-bar">
 
                 <NavLink to="/" style={{ color: 'inherit', textDecoration: 'inherit'}} > 
+                    <div className="nav-img">
+                    {/* <img src={HauntedHouse} alt="Spooky Ghost"/> */}
+                    </div>
+                    
                     <div className="nav-logo">
-                    {/* <img src={SpookyGhost} alt="Spooky Ghost"/> */}
                     <h2> Break The Fourth Wall </h2>
                     </div>
                 </NavLink>
