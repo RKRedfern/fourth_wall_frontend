@@ -8,7 +8,7 @@ const Profile = (props) => {
     const deleteHandler = () => {
         let location = props.routerProps.history
         location.replace("/")
-        props.deletingUser(props.user.data)
+        props.deletingUser(props.user.id)
     }
 
     const editHandler = () => {
@@ -32,6 +32,7 @@ const Profile = (props) => {
                     </div>
 
                     <div className="account-buttons">
+
                         <button onClick={deleteHandler} >Delete Account</button>
                         <button onClick={editHandler} >Edit Account Info</button>
 

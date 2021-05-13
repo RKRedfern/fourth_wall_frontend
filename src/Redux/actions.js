@@ -58,10 +58,10 @@ export function deleteUser(userId){
         fetch(`${URL}/users/${userId}`, {
             method: "DESTROY",
             headers: {
-                "Access-Control-Allow-Origin": "*",
+                // "Access-Control-Allow-Origin": "http://localhost:3001",
                 "Accepts": "application/json",
                 "Content-type": "application/json",
-                "Authorization": 'Bearer ' + localStorage.getItem("token")
+                // "Authorization": 'Bearer ' + localStorage.getItem("token")
             }
         })
         .then(r=>r.json())
