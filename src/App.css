@@ -1,11 +1,15 @@
 body {
     font-family: "Fantasy", serif;
 }
+
+.App {
+    background: linear-gradient(#ffa9a9, #ffffff);
+}
 /* NavBar CSS*/
 
 .nav-bar {
-    background: linear-gradient(#c3bfff, #320061);
-    color: white;
+    background: linear-gradient(#ff9c9c, #550000);
+    color: rgb(112, 0, 0);
     height: 125px;
     font-style: normal;
     text-decoration: none;
@@ -17,7 +21,6 @@ body {
     float: left;
     display: inline-flex;
     z-index: -1;
-    
 }
 
 .button-div {
@@ -25,7 +28,7 @@ body {
     height: 20px;
 }
 
-.button-div button {
+.button {
     padding:0.90em 1.8em;
     border-style: transparent;
     border-color: transparent;
@@ -38,10 +41,9 @@ body {
     font-style: inherit;
     font-size: 1.4vw;
     font-weight: 300;
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
     transition: all 0.2s;
-
 }
 
 .nav-img{
@@ -51,31 +53,180 @@ body {
     z-index: 1;
 }
 
-.nav-bar button:hover {
-    color: white;
-    border-color: rgba(255, 255, 255, 0.733);
+.button:hover {
+    color: rgb(143, 0, 0);
+    border-color: rgb(128, 0, 0);
     border-width: 3.5px, 1px;
     border-radius: .5rem;
-    background-color: transparent;
+    background-color: ;
     text-decoration: none;
     font-style: normal;
 }
 
-.nav-bar button:active {
-    color: white;
+.button:active {
+    color: rgb(128, 0, 0);
     text-decoration: none;
     font-style: normal;
 }
 
-.nav-bar button:visited {
-    color: white;
+.button:visited {
+    color: rgb(0, 0, 0);
     border-color: transparent;
     text-decoration: none;
     font-style: normal;
 }
 
-.nav-bar button:link {
-    color: white;
+.button:link {
+    color: rgb(95, 0, 0);
     text-decoration: none;
     font-style: normal;
+}
+
+.homepage {
+    top: 20vh;
+    height: 90vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.homepage-text{
+    color: rgb(150, 0, 0);
+    height: 90vh;
+    width: 500vh;
+    font-size: 2em;
+    background-color: rgb(196, 196, 196);
+    position: absolute;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* .form-body{
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+} */
+
+.login-form{
+    height: 40vh;
+    width: 30vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.name-div{
+    width: 50%;
+    height: 50px;
+    position: relative;
+}
+
+.name-div input {
+    width: 100%;
+    height: 100%;
+    color: #595f6e;
+    border: none;
+    outline: none;
+    overflow: hidden;
+}
+
+.name-div label{
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom:  1px solid black;
+}
+
+.name-div label::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid rgb(62, 0, 143);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+
+}
+
+.content-name{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.name-div input:focus + .label-name .content-name,
+.form input:valid + .label-name .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: rgb(62, 0, 143);
+}
+
+.name-div input:focus + .label-name::after, 
+.name-div input:valid + .label-name::after{
+    transform: translate(0%)
+}
+
+.password-div{
+    width: 50%;
+    height: 50px;
+    position: relative;
+}
+
+.password-div input {
+    width: 100%;
+    height: 100%;
+    color: #595f6e;
+    border: none;
+    outline: none;
+    overflow: hidden;
+}
+
+.password-div label{
+    position: absolute;
+    bottom: 0px;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom:  1px solid black;
+}
+
+.password-div label::after{
+    content: "";
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid rgb(62, 0, 143);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    
+}
+
+.content-password{
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.password-div input:focus + .label-password .content-password,
+.form input:valid + .label-password .content-password {
+    transform: translateY(-150%);
+    font-size: 14px;
+    color: rgb(62, 0, 143);
+}
+
+.password-div input:focus + .label-password::after, 
+.password-div input:valid + .label-password::after{
+        transform: translate(0%)
 }

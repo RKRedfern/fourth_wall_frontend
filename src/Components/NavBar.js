@@ -31,7 +31,7 @@ const NavBar = (props) => {
                 </NavLink>
 
                 <NavLink to="/logout" style={{ color: 'inherit', textDecoration: 'inherit'}}>
-                    <button onClick={()=> {
+                    <button class="button" onClick={()=> {
                     localStorage.removeItem("token")
                     localStorage.removeItem("user")
                     props.logOut()
@@ -41,7 +41,7 @@ const NavBar = (props) => {
                 <NavLink to="/addghost" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
                     <button>Add A Ghost</button>
                 </NavLink>
-
+                
                 </>
                 :
                 <>
@@ -58,7 +58,6 @@ const NavBar = (props) => {
             </div>
         </div>
     )
-
 }
 
 function msp(state){

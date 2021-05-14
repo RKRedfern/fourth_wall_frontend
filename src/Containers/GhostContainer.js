@@ -1,6 +1,5 @@
 import React from 'react'
 import Ghost from '../Components/Ghost'
-import GhostInput from '../Components/GhostInput'
 import { connect } from 'react-redux'
 
 const GhostContainer = (props) => {

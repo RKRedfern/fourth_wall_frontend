@@ -1,4 +1,4 @@
-import { LOG_IN, SIGN_UP, RETURNING, DELETE_USER, EDIT_USER, LOG_OUT, SET_GHOSTS, ADD_TO_GHOSTS } from './actionTypes'
+import { LOG_IN, SIGN_UP, RETURNING, DELETE_USER, EDIT_USER, LOG_OUT, ADD_TO_GHOSTS } from './actionTypes'
 import { URL } from '../index'
 
 
@@ -17,7 +17,7 @@ export function loginUser(userObj) {
             .then(checkedUserObj => {
                 
                 dispatch({ type: LOG_IN, payload: checkedUserObj })
-                dispatch({ type: SET_GHOSTS, payload: checkedUserObj })
+                //dispatch({ type: SET_GHOSTS, payload: checkedUserObj })
 
                 console.log(checkedUserObj)
                 localStorage.setItem("token", checkedUserObj.jwt)
@@ -56,12 +56,11 @@ export function returningUser(userObj) {
 export function deleteUser(userId){
     return function (dispatch){
         fetch(`${URL}/users/${userId}`, {
-            method: "DESTROY",
+            method: "DELETE",
             headers: {
-                // "Access-Control-Allow-Origin": "http://localhost:3001",
                 "Accepts": "application/json",
                 "Content-type": "application/json",
-                // "Authorization": 'Bearer ' + localStorage.getItem("token")
+                "Authorization": 'Bearer ' + localStorage.getItem("token")
             }
         })
         .then(r=>r.json())
@@ -73,6 +72,7 @@ export function deleteUser(userId){
 }
 
 export function editUser(userObj, userId){
+    console.log(userObj)
     return function (dispatch){
         fetch(`${URL}/users/${userId}`, {
             method: "PATCH",
@@ -86,7 +86,8 @@ export function editUser(userObj, userId){
         })
         .then(r=>r.json())
         .then(returnedUser => {
-            dispatch({ type: EDIT_USER, payload: returnedUser.user })
+            console.log(returnedUser)
+            dispatch({ type: EDIT_USER, payload: returnedUser })
         })
     }
 }

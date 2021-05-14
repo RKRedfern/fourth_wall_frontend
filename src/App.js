@@ -41,7 +41,7 @@ class App extends React.Component {
   }
 
   editSubmitHandler = (userObj) => {
-    this.props.edit(userObj, this.props.user.data.id)
+    this.props.edit(userObj, this.props.user.id)
   }
 
   addGhostHandler = () => {
@@ -70,7 +70,7 @@ class App extends React.Component {
         />
         <Route path='/edit' render={(routerProps) => {
             return(
-              <EditForm submitHandler={this.editSubmitHandler} routerProps={routerProps} />
+              <EditForm submitHandler={this.editSubmitHandler} routerProps={routerProps} user={this.props.user}/>
             )
           }} 
         />
@@ -87,10 +87,8 @@ class App extends React.Component {
       </div>
     )
   }
-  componentWillUnmount(){
-
-  }
 }
+
 
 function msp(state){
   return{

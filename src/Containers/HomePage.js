@@ -8,7 +8,9 @@ class HomePage extends React.Component  {
             <span className="homepage">
 
                 <div className="homepage-text">
-                    <h1> Break the Fourth Wall</h1>
+                    <h1> This is the Landing Page </h1>
+
+                    <h4> Some other spooky info </h4>
                 </div>
             </span>
             )

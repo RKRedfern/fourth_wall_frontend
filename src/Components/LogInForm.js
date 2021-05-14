@@ -23,10 +23,10 @@ class LogInForm extends React.Component {
     render(){
         return(
             
-            <div className="form-body">
+            <div className="login-form">
 
                 <h1>Log In</h1>
-                <form onSubmit={this.submitHandler} className="login-form">
+                <form onSubmit={this.submitHandler} >
 
                     <div className="name-div">
                         <input type="text" name="name" value={this.state.name} onChange={this.changeHandler} autoComplete="off"/>
@@ -43,7 +43,7 @@ class LogInForm extends React.Component {
 
                     </div>
                         
-                    <button>Log In</button>
+                    <button className="button">Log In</button>
                 </form> 
                 
             </div>
