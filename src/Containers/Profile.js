@@ -4,7 +4,7 @@ import { deleteUser } from '../Redux/actions'
 import GhostContainer from './GhostContainer'
 
 const Profile = (props) => {
-    
+
     const deleteHandler = () => {
         let location = props.routerProps.history
         location.replace("/login")
@@ -28,7 +28,7 @@ const Profile = (props) => {
                         
                     </div>
                     <div className="user-ghost-collection">
-                        < GhostContainer user={props.user}/>
+                        < GhostContainer />
                     </div>
 
                     <div className="account-buttons">
@@ -47,7 +47,8 @@ const Profile = (props) => {
 
 function msp(state){
     return { 
-        user: state.user
+        user: state.user,
+        ghost: state.ghost
     }
 }
 

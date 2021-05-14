@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {addToGhosts} from '../Redux/actions'
 
 class GhostInput extends React.Component{
 
@@ -15,7 +16,7 @@ class GhostInput extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleSubmit(this.state)
+        this.props.addGhost(this.state, this.props.user.id)
         let location = this.props.routerProps.history
         location.replace("/profile")
     }
@@ -34,20 +35,11 @@ class GhostInput extends React.Component{
     }
 }
 
-function msp(state){
-    return { 
-        ghost: state.ghost,
-        user: state.user
+function mdp(dispatch){
+    return{
+        addGhost: (ghostObj, userId) => dispatch(addToGhosts(ghostObj, userId)),
     }
 }
 
-// function mdp(dispatch){
-//     return{
-//         addGhost: (ghostObj, userId) => dispatch(addToGhosts(ghostObj, userId)),
-//     }
-// }
+export default connect(null, mdp)(GhostInput);
 
-export default connect(msp, null)(GhostInput);
-
-// msp gives a component access to what is already in the store
-// mdp passes information from dispatch to the props on data entry

@@ -2,17 +2,19 @@ import React from 'react'
 import Ghost from '../Components/Ghost'
 import { connect } from 'react-redux'
 
-const GhostContainer = (props) => {
+class GhostContainer extends React.Component{
 
-    return(
-        <div>
-            
-            <Ghost user={props.user}/>
+    state = {
+        ghost: this.props.ghost
+    }
 
-        </div>
-
-
-    )
+    render(){
+        return(
+            <div>
+                <Ghost ghost={this.props.ghost}/>
+            </div>
+        ) 
+    }
 }
 
 function msp(state){
@@ -21,4 +23,4 @@ function msp(state){
     }
 }
 
-export default connect(msp)(GhostContainer);
+export default connect(msp, null)(GhostContainer);

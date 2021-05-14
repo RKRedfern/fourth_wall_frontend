@@ -25,13 +25,6 @@ class EditForm extends React.Component {
 
                 <form onSubmit={this.submitHandler} className="edit-form" >
 
-                    {/* <div className="name-div">
-                        <input type="text" name="name" value={this.state.name} onChange={this.editHandler} autoComplete="off"/>
-                        <label htmlFor="name" className="label-name">
-                            <span className="content-name"> Name </span>
-                        </label>
-                    </div> */}
-                        
                     <div className="bio-div">
                         <input type="bio" name="bio" value={this.state.bio} onChange={this.editHandler} autoComplete="off" />
                         <label htmlFor="bio" className="label-bio">
@@ -55,4 +48,3 @@ function msp(state){
 
 export default connect(msp, null)(EditForm)
 
-//This action is incomplete - Need to finish the edit action in backend and fix prop transfer

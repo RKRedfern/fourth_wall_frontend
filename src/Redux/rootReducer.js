@@ -20,8 +20,6 @@ function userReducer(prevState = defaultState.user, action){
             return action.payload.user.data
         case "LOG_OUT":
             return null
-        // case "ADD_TO_GHOSTS":
-        //     return action.payload
         default:
             return prevState
     }
@@ -33,6 +31,8 @@ function ghostReducer(prevState = defaultState.ghost, action){
             return [...prevState, action.payload]
         case "SET_GHOSTS":
             return action.payload
+        case "LOG_OUT":
+            return []
         default:
             return prevState
     }

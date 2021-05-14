@@ -15,11 +15,9 @@ export function loginUser(userObj) {
         })
             .then(r => r.json())
             .then(checkedUserObj => {
-                
-                dispatch({ type: LOG_IN, payload: checkedUserObj })
-                //dispatch({ type: SET_GHOSTS, payload: checkedUserObj })
-
                 console.log(checkedUserObj)
+                dispatch({ type: LOG_IN, payload: checkedUserObj })
+                dispatch({ type: SET_GHOSTS, payload: checkedUserObj.user.data.attributes.ghosts })
                 localStorage.setItem("token", checkedUserObj.jwt)
             })
             
@@ -27,7 +25,7 @@ export function loginUser(userObj) {
 }
 
 export function signupUser(userObj) {
-    return function (dispatch, getState) {
+    return function (dispatch) {
         fetch('http://localhost:3000/api/v1/users', {
             method: "POST",
             headers: {
@@ -49,7 +47,8 @@ export function signupUser(userObj) {
 
 export function returningUser(userObj) {
     return dispatch => {
-        dispatch({ type: RETURNING, payload: userObj }) 
+        dispatch({ type: RETURNING, payload: userObj })
+        dispatch({ type: SET_GHOSTS, payload: userObj.data.attributes.ghosts })
     }
 }
 
@@ -67,6 +66,7 @@ export function deleteUser(userId){
         .then(response => {
             localStorage.clear()
             dispatch({ type: DELETE_USER, payload: response})
+            dispatch({ type: LOG_OUT })
         })
     }
 }

@@ -40,6 +40,10 @@ const NavBar = (props) => {
                 <NavLink to="/addghost" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
                     <button>Add A Ghost</button>
                 </NavLink>
+
+                {/* <NavLink to="/ghostcollection" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
+                    <button>See My Collection</button>
+                </NavLink> */}
                 
                 </>
                 :
