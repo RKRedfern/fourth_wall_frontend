@@ -1,4 +1,4 @@
-import { LOG_IN, SIGN_UP, RETURNING, DELETE_USER, EDIT_USER, LOG_OUT, ADD_TO_GHOSTS } from './actionTypes'
+import { LOG_IN, SIGN_UP, RETURNING, DELETE_USER, EDIT_USER, LOG_OUT, ADD_GHOST, SET_GHOSTS } from './actionTypes'
 import { URL } from '../index'
 
 
@@ -96,7 +96,6 @@ export function loggingOut(){
 }
 
 export function addToGhosts(ghostObj, userId) {
-    console.log(ghostObj)
     return function (dispatch) { 
             fetch(`${URL}/users/${userId}/ghosts/`, {
                 method: "POST",
@@ -104,12 +103,13 @@ export function addToGhosts(ghostObj, userId) {
                     "Accepts": "application/json",
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(ghostObj)
+                body: JSON.stringify ({ ghost: ghostObj })
             })
             .then(r => r.json())
             .then(ghostObj => {
                 console.log(ghostObj)
-                dispatch({type: ADD_TO_GHOSTS, payload: ghostObj })
+                dispatch({type: ADD_GHOST, payload: ghostObj })
+                dispatch({type: SET_GHOSTS, payload: ghostObj })
             })
         }
     }

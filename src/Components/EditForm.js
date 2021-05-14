@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+
 class EditForm extends React.Component {
 
     state = {
-        // name: this.props.user.attributes.name,
         bio: this.props.user.attributes.bio
     }
     

@@ -44,8 +44,8 @@ class App extends React.Component {
     this.props.edit(userObj, this.props.user.id)
   }
 
-  addGhostHandler = () => {
-    
+  addGhostHandler = (ghostObj) => {
+    this.props.addGhost(ghostObj)
   }
 
   render () {
@@ -92,7 +92,8 @@ class App extends React.Component {
 
 function msp(state){
   return{
-    user: state.user
+    user: state.user,
+    ghost: state.ghost
   }
 }
 

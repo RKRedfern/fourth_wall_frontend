@@ -6,7 +6,6 @@ import GhostContainer from './GhostContainer'
 const Profile = (props) => {
     
     const deleteHandler = () => {
-        localStorage.clear()
         let location = props.routerProps.history
         location.replace("/login")
         props.deletingUser(props.user.id)
