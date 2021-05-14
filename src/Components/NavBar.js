@@ -27,18 +27,18 @@ const NavBar = (props) => {
                 <>
 
                 <NavLink to="/profile" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
-                    <button>Profile</button>
+                    <button className="button">Profile</button>
                 </NavLink>
 
                 <NavLink to="/logout" style={{ color: 'inherit', textDecoration: 'inherit'}}>
-                    <button onClick={()=> {
+                    <button className="button" onClick={()=> {
                     localStorage.removeItem("token")
                     props.logOut()
                     }} > Log Out </button>
                 </NavLink>
 
                 <NavLink to="/addghost" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
-                    <button>Add A Ghost</button>
+                    <button className="button">Add A Ghost</button>
                 </NavLink>
 
                 {/* <NavLink to="/ghostcollection" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
@@ -50,11 +50,11 @@ const NavBar = (props) => {
                 <>
 
                 <NavLink to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}> 
-                    <button> Log In </button>
+                    <button className="button"> Log In </button>
                 </NavLink>
 
                 <NavLink to="/signup" style={{ color: 'inherit', textDecoration: 'inherit'}}>
-                    <button> Sign Up </button>
+                    <button className="button"> Sign Up </button>
                 </NavLink>
                 </>
                 }

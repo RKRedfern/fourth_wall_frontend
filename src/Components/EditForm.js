@@ -21,11 +21,11 @@ class EditForm extends React.Component {
 
     render(){
         return(
-            <div className="form-body">
+            <div className="form-div">
 
-                <form onSubmit={this.submitHandler} className="edit-form" >
+                <form onSubmit={this.submitHandler}>
 
-                    <div className="bio-div">
+                    <div className="name-div">
                         <input type="bio" name="bio" value={this.state.bio} onChange={this.editHandler} autoComplete="off" />
                         <label htmlFor="bio" className="label-bio">
                             <span className="content-bio"> Bio </span>
@@ -33,7 +33,7 @@ class EditForm extends React.Component {
 
                     </div>
 
-                    <button>Edit User</button>
+                    <button className="button">Edit User</button>
                 </form>
             </div>
         )

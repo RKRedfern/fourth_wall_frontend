@@ -23,12 +23,32 @@ class GhostInput extends React.Component{
 
     render(){
         return(
-            <div className="form-body">
+            <div className="form-div">
+                    <h1> Add A Ghost To Your Library </h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Ghost Name" value={this.state.name} name="name" onChange={this.changeHandler}/>
-                    <input type="text" placeholder="Ghost Type" value={this.state.kind} name="kind" onChange={this.changeHandler}/>
-                    <input type="text" placeholder="Notes" value={this.state.notes} name="notes" onChange={this.changeHandler}/>
-                <button>Add Ghost</button>
+
+                <div className="name-div">
+                        <input type="text" name="name" value={this.state.name} onChange={this.changeHandler}/>
+                        <label htmlFor="name" className="label-name">
+                            <span className="content-name">Name</span>
+                        </label>
+                </div>
+
+                <div className="name-div">
+                        <input type="text" name="name" value={this.state.name} onChange={this.changeHandler}/>
+                        <label htmlFor="name" className="label-name">
+                            <span className="content-name">Type</span>
+                        </label>
+                </div>
+
+                <div className="name-div">
+                        <input type="text" name="name" value={this.state.name} onChange={this.changeHandler}/>
+                        <label htmlFor="name" className="label-name">
+                            <span className="content-name">Notes</span>
+                        </label>
+                </div>
+
+                <button className="button">Add Ghost</button>
                 </form>
             </div>
         )
@@ -42,4 +62,3 @@ function mdp(dispatch){
 }
 
 export default connect(null, mdp)(GhostInput);
-

@@ -33,8 +33,8 @@ const Profile = (props) => {
 
                     <div className="account-buttons">
 
-                        <button onClick={deleteHandler} >Delete Account</button>
-                        <button onClick={editHandler} >Edit Account Info</button>
+                    <button className="button" onClick={deleteHandler} >Delete Account</button>
+                    <button className="button" onClick={editHandler} >Edit Account Info</button>
 
                     </div>
 

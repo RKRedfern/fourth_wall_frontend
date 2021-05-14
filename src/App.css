@@ -1,5 +1,5 @@
 body {
-    font-family: "Fantasy", serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 .App {
@@ -82,19 +82,15 @@ body {
     font-style: normal;
 }
 
-.homepage {
-    top: 20vh;
-    height: 90vh;
-    width: 100vw;
-    overflow: hidden;
-}
 
 .homepage-text{
+    background: linear-gradient(#ffa9a9, #ffffff);
+    margin: 0px, 0px, 0px, 0px;
     color: rgb(150, 0, 0);
     height: 90vh;
     width: 500vh;
     font-size: 2em;
-    background-color: rgb(196, 196, 196);
+    background-color: rgb(255, 247, 247);
     position: absolute;
     overflow: hidden;
     z-index: 1000;
@@ -109,6 +105,7 @@ body {
 } */
 
 .login-form{
+    background: transparent;
     height: 40vh;
     width: 30vw;
     display: flex;
@@ -118,6 +115,7 @@ body {
 }
 
 .name-div{
+    background-color: transparent;
     width: 50%;
     height: 50px;
     position: relative;
@@ -149,7 +147,7 @@ body {
     bottom: -1px;
     height: 100%;
     width: 100%;
-    border-bottom: 3px solid rgb(62, 0, 143);
+    border-bottom: 3px solid rgb(255, 0, 0);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
 
@@ -166,7 +164,7 @@ body {
 .form input:valid + .label-name .content-name {
     transform: translateY(-150%);
     font-size: 14px;
-    color: rgb(62, 0, 143);
+    color: rgb(255, 0, 0);
 }
 
 .name-div input:focus + .label-name::after, 
@@ -206,7 +204,7 @@ body {
     bottom: -1px;
     height: 100%;
     width: 100%;
-    border-bottom: 3px solid rgb(62, 0, 143);
+    border-bottom: 3px solid rgb(255, 0, 0);
     transform: translateX(-100%);
     transition: transform 0.3s ease;
     
@@ -223,7 +221,7 @@ body {
 .form input:valid + .label-password .content-password {
     transform: translateY(-150%);
     font-size: 14px;
-    color: rgb(62, 0, 143);
+    color: rgb(255, 0, 0);
 }
 
 .password-div input:focus + .label-password::after, 

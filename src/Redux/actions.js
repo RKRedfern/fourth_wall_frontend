@@ -15,7 +15,6 @@ export function loginUser(userObj) {
         })
             .then(r => r.json())
             .then(checkedUserObj => {
-                console.log(checkedUserObj)
                 dispatch({ type: LOG_IN, payload: checkedUserObj })
                 dispatch({ type: SET_GHOSTS, payload: checkedUserObj.user.data.attributes.ghosts })
                 localStorage.setItem("token", checkedUserObj.jwt)
@@ -37,7 +36,6 @@ export function signupUser(userObj) {
             .then(r => r.json())
             .then(newUserObj => {
                 localStorage.setItem("token", newUserObj.jwt)
-                console.log(newUserObj.user.data)
                 dispatch({ type: SIGN_UP, payload: newUserObj })
 
             })

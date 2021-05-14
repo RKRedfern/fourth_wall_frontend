@@ -4,14 +4,17 @@ import React from 'react'
 const HomePage = () => {
 
     return (
-        <span className="homepage">
+        <div className="home-page">
 
             <div className="homepage-text">
-                <h1> This is the Landing Page </h1>
+                <h2> Ghost hunters united </h2>
 
-                <h4> Some other spooky info </h4>
+                <h4> We know the truth </h4>
+                <h5> We know what's behind the veil </h5>
+                <h6> Join us, and break the fourth wall </h6>
             </div>
-        </span>
+
+        </div>
         )
 }
     

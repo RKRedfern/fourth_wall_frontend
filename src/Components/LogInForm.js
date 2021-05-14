@@ -22,7 +22,7 @@ class LogInForm extends React.Component {
     render(){
         return(
             
-            <div className="login-form">
+            <div className="form-div">
 
                 <h1>Log In</h1>
                 <form onSubmit={this.submitHandler} >

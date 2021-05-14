@@ -13,7 +13,7 @@ class Ghost extends React.Component {
 
         return(
             <div>
-                {this.props.ghost.map(ghost => <li key={ghost.id}> {ghost.name} - {ghost.kind} - {ghost.notes} </li>)}
+                {this.props.ghost.map(ghost => <li key={ghost.id}> - {ghost.name} - {ghost.kind} - {ghost.notes} </li>)}
             </div>
         )
     }
