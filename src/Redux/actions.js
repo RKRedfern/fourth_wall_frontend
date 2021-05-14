@@ -77,12 +77,11 @@ export function editUser(userObj, userId){
         fetch(`${URL}/users/${userId}`, {
             method: "PATCH",
             headers: {
-                
                 "Accepts": "application/json",
                 "Content-type": "application/json",
                 "Authorization": 'Bearer ' + localStorage.getItem("token")
             },
-            body: JSON.stringify({ user: userObj })
+            body: JSON.stringify( userObj )
         })
         .then(r=>r.json())
         .then(returnedUser => {

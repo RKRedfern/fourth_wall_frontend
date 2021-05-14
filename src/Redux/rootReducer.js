@@ -17,7 +17,7 @@ function userReducer(prevState = defaultState.user, action){
         case "DELETE_USER":
             return action.payload
         case "EDIT_USER":
-            return action.payload
+            return action.payload.user.data
         case "LOG_OUT":
             return null
         case "ADD_TO_GHOSTS":

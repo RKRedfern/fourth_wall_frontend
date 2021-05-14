@@ -31,7 +31,7 @@ const NavBar = (props) => {
                 </NavLink>
 
                 <NavLink to="/logout" style={{ color: 'inherit', textDecoration: 'inherit'}}>
-                    <button class="button" onClick={()=> {
+                    <button onClick={()=> {
                     localStorage.removeItem("token")
                     localStorage.removeItem("user")
                     props.logOut()

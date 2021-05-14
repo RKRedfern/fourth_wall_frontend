@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 class EditForm extends React.Component {
 
     state = {
-        name: this.props.user.attributes.name,
-        bio: ""
+        // name: this.props.user.attributes.name,
+        bio: this.props.user.attributes.bio
     }
     
     editHandler = (e) => {
@@ -25,12 +25,12 @@ class EditForm extends React.Component {
 
                 <form onSubmit={this.submitHandler} className="edit-form" >
 
-                    <div className="name-div">
+                    {/* <div className="name-div">
                         <input type="text" name="name" value={this.state.name} onChange={this.editHandler} autoComplete="off"/>
                         <label htmlFor="name" className="label-name">
                             <span className="content-name"> Name </span>
                         </label>
-                    </div>
+                    </div> */}
                         
                     <div className="bio-div">
                         <input type="bio" name="bio" value={this.state.bio} onChange={this.editHandler} autoComplete="off" />
@@ -40,7 +40,7 @@ class EditForm extends React.Component {
 
                     </div>
 
-                    <button class="button">Edit User</button>
+                    <button>Edit User</button>
                 </form>
             </div>
         )
