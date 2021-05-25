@@ -35,14 +35,14 @@ class GhostInput extends React.Component{
                 </div>
 
                 <div className="name-div">
-                        <input type="text" name="name" value={this.state.name} onChange={this.changeHandler}/>
+                        <input type="text" name="kind" value={this.state.kind} onChange={this.changeHandler}/>
                         <label htmlFor="name" className="label-name">
                             <span className="content-name">Type</span>
                         </label>
                 </div>
 
                 <div className="name-div">
-                        <input type="text" name="name" value={this.state.name} onChange={this.changeHandler}/>
+                        <input type="text" name="notes" value={this.state.notes} onChange={this.changeHandler}/>
                         <label htmlFor="name" className="label-name">
                             <span className="content-name">Notes</span>
                         </label>
@@ -55,10 +55,17 @@ class GhostInput extends React.Component{
     }
 }
 
+function msp(state){
+    return{
+        user: state.user,
+        ghost: state.ghost
+    }
+}
+
 function mdp(dispatch){
     return{
         addGhost: (ghostObj, userId) => dispatch(addToGhosts(ghostObj, userId)),
     }
 }
 
-export default connect(null, mdp)(GhostInput);
+export default connect(msp, mdp)(GhostInput);

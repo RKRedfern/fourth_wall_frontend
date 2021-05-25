@@ -45,6 +45,7 @@ export function signupUser(userObj) {
 
 export function returningUser(userObj) {
     return dispatch => {
+        
         dispatch({ type: RETURNING, payload: userObj })
         dispatch({ type: SET_GHOSTS, payload: userObj.data.attributes.ghosts })
     }
@@ -63,7 +64,7 @@ export function deleteUser(userId){
         .then(r=>r.json())
         .then(response => {
             localStorage.clear()
-            dispatch({ type: DELETE_USER, payload: response})
+            dispatch({ type: DELETE_USER, payload: response })
             dispatch({ type: LOG_OUT })
         })
     }
@@ -83,7 +84,7 @@ export function editUser(userObj, userId){
         })
         .then(r=>r.json())
         .then(returnedUser => {
-            console.log(returnedUser)
+            
             dispatch({ type: EDIT_USER, payload: returnedUser })
         })
     }
@@ -105,7 +106,7 @@ export function addToGhosts(ghostObj, userId) {
             })
             .then(r => r.json())
             .then(ghostObj => {
-                console.log(ghostObj)
+                
                 dispatch({type: ADD_GHOST, payload: ghostObj })
                 dispatch({type: SET_GHOSTS, payload: ghostObj })
             })

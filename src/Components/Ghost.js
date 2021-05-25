@@ -1,28 +1,21 @@
 import React from 'react'
-import { connect } from 'react-redux'
+//import { connect } from 'react-redux'
+import Button from './Button'
 
 
 
 class Ghost extends React.Component {
 
-    state = {
-        ghost: this.props.ghosts
-    }
-
     render(){
-
+        
         return(
             <div>
-                {this.props.ghost.map(ghost => <li key={ghost.id}> - {ghost.name} - {ghost.kind} - {ghost.notes} </li>)}
+                {this.props.ghost.map(ghost => <li key={ghost.id}> - {ghost.name} - {ghost.kind} - 
+                {ghost.notes}<Button/></li> )}
             </div>
         )
     }
 }
 
-function msp(state){
-    return{
-        ghost: state.ghost
-    }
-}
 
-export default connect(msp, null)(Ghost);
+export default Ghost;

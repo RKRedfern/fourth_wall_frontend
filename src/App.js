@@ -1,4 +1,4 @@
-import './App.css';
+//import './App.css';
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -22,7 +22,7 @@ class App extends React.Component {
       fetch(`${URL}/profile`, {
         method: "GET",
         headers: {
-          "Authorization": 'Bearer ' + token
+          "Authorization" : 'Bearer ' + token
         }
       })
         .then(r => r.json())

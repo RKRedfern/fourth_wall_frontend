@@ -1,9 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { connect } from 'react-redux'
 import { deleteUser } from '../Redux/actions'
 import GhostContainer from './GhostContainer'
+import Search from '../Components/Search'
+
 
 const Profile = (props) => {
+
+    const [ghosts, setGhosts] = useState(props.ghost)
 
     const deleteHandler = () => {
         let location = props.routerProps.history
@@ -14,6 +18,23 @@ const Profile = (props) => {
     const editHandler = () => {
         let location = props.routerProps.history
         location.replace("/edit")
+    }
+
+    const searchHandler = (searchInput) => {
+        console.log(searchInput)
+
+        const desiredGhost = props.ghost.filter(ghost => 
+            ghost.name.startsWith(searchInput))
+
+        if(searchInput === ""){
+            setGhosts(props.ghost)
+        } else {
+            setGhosts(desiredGhost)
+        }
+
+        //if search input is an empty string, then state.ghost = props.ghost 
+        //if search input is anything, then filter props.ghost
+        //we are filtering ghost by what the search input is and what the name starts with
     }
         
     const user = props.user
@@ -28,7 +49,8 @@ const Profile = (props) => {
                         
                     </div>
                     <div className="user-ghost-collection">
-                        < GhostContainer />
+                        <GhostContainer ghost={ghosts} />
+                        <Search search={searchHandler}/>
                     </div>
 
                     <div className="account-buttons">
@@ -59,3 +81,9 @@ function mdp(dispatch){
 }
 
 export default connect(msp, mdp)(Profile);
+
+//Search Component 
+//include it on the profile component 
+//give it a function as props to send data back up 
+//put a filter function in between my render/return 
+//change where I'm sending the the ghost array 

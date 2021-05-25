@@ -1,26 +1,13 @@
 import React from 'react'
 import Ghost from '../Components/Ghost'
-import { connect } from 'react-redux'
 
-class GhostContainer extends React.Component{
+const GhostContainer = (props) => {
 
-    state = {
-        ghost: this.props.ghost
-    }
-
-    render(){
-        return(
-            <div>
-                <Ghost ghost={this.props.ghost}/>
-            </div>
-        ) 
-    }
+    return(
+        <div>
+            <Ghost ghost={props.ghost}/>
+        </div>
+    ) 
 }
 
-function msp(state){
-    return{
-        ghost: state.ghost
-    }
-}
-
-export default connect(msp, null)(GhostContainer);
+export default GhostContainer;
