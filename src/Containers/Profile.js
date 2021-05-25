@@ -21,8 +21,6 @@ const Profile = (props) => {
     }
 
     const searchHandler = (searchInput) => {
-        console.log(searchInput)
-
         const desiredGhost = props.ghost.filter(ghost => 
             ghost.name.startsWith(searchInput))
 
@@ -31,10 +29,6 @@ const Profile = (props) => {
         } else {
             setGhosts(desiredGhost)
         }
-
-        //if search input is an empty string, then state.ghost = props.ghost 
-        //if search input is anything, then filter props.ghost
-        //we are filtering ghost by what the search input is and what the name starts with
     }
         
     const user = props.user
